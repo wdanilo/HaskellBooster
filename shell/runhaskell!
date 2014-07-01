@@ -1,0 +1,3 @@
+#!/bin/bash
+SCRIPTPATH=`dirname $(dirname $(realpath $0))`
+runhaskell -F -pgmF$SCRIPTPATH/preprocessor/preprocessor.py $@
