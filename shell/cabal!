@@ -1,0 +1,3 @@
+#!/bin/bash
+SCRIPTPATH=`dirname $(dirname $(realpath $0))`
+cabal --ghc-options="-F -pgmF$SCRIPTPATH/preprocessor/preprocessor.py" $@
