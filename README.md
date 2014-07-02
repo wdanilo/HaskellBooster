@@ -4,7 +4,7 @@ HaskellBooster
 HaskellBooster is a set of tools and extensions improving Haskell's programmer workflow. HaskellBooster contains GHC extensions implemented as GHC preprocessors and simple command line tools wrappers (ghc, runhaskell, cabal), automatically providing needed flags when necessary.
 
 ###Extensions
-All extensions are implemented as GHC preprocessors and can be enabled by defining pragmas using a little different syntax than standard Haskell's pragmas. HaskellBooster pragmas look like ordinary pragmas with exclamation mark on the beginning of the line. So aan example pragma would be ```haskell !{-# LANGUAGE RightSideContexts #-}```.
+All extensions are implemented as GHC preprocessors and can be enabled by defining pragmas using a little different syntax than standard Haskell's pragmas. HaskellBooster pragmas look like ordinary pragmas with exclamation mark on the beginning of the line. So aan example pragma would be ```!{-# LANGUAGE RightSideContexts #-}```.
 
 ####RightSideContexts
 The pragma extends available syntax when defining type classes and type class instances. It allows writing the context on the right side of such declaration, after a new operator ```<=```. An example Haskell code
