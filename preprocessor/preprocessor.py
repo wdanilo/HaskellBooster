@@ -29,6 +29,7 @@ def main():
         __import__(modname)
         module = sys.modules[modname]
         txt = module.run(txt)
+    txt = '{-# LINE 1 "%s" #-}\n%s' % (inputPath, txt)
 
     with open(outputPath, "w") as file:
         file.write(txt)
