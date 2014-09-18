@@ -1,0 +1,11 @@
+import os.path
+import sys
+import subprocess
+
+def main():
+    SCRIPTPATH= os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0])))
+    subprocess.call(["ghci", "-F", "-pgmF%s/preprocessor/preprocessor.py" % (SRIPTPATH)] + sys.argv)
+
+main()
+
+#ghci -F -pgmF$SCRIPTPATH/preprocessor/preprocessor.py $@
