@@ -1,3 +1,4 @@
+import platform
 import os.path
 import sys
 import os
@@ -5,9 +6,11 @@ import subprocess
 
 def main():
     SCRIPTPATH= os.path.dirname(os.path.dirname(os.path.realpath(sys.argv[0])))
-    pathBat = os.path.join(SCRIPTPATH, "preprocessor", "run.bat")
-        
-    callInfo = ('cabal --ghc-options="-F -pgmF%s"' % pathBat) + " " + ' '.join(sys.argv[1:])    
+    preprocessor = None
+    if platform.system() == "Windows":   preprocessor = os.path.join(SCRIPTPATH, "preprocessor", "run.bat")
+    else: preprocessor = os.path.join(SCRIPTPATH, "preprocessor", "preprocessor.py")
+
+    callInfo = ('cabal --ghc-options="-F -pgmF%s"' % preprocessor) + " " + ' '.join(sys.argv[1:])    
     
     ret = os.system(callInfo)
     if ret: raise Exception('failed (%s) to run "%s"' % (ret, callInfo))
