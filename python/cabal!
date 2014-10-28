@@ -9,7 +9,8 @@ def main():
         
     callInfo = ('cabal --ghc-options="-F -pgmF%s"' % pathBat) + " " + ' '.join(sys.argv[1:])    
     
-    os.system(callInfo)
+    ret = os.system(callInfo)
+    if ret: raise Exception('failed (%s) to run "%s"' % (ret, callInfo))
     
     #subprocess.call(callInfo)
 
